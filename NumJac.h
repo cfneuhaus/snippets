@@ -18,6 +18,7 @@ auto numJacobian(T fn, const P& x) -> Eigen::Matrix<double,decltype(fn(x))::Rows
 		const auto a=fn(xh);
 		xh(i)=x(i)-eps;
 		const auto b=fn(xh);
+		xh(i)=x(i);
 
 		if (Rows==Eigen::Dynamic)
 		{
