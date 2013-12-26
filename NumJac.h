@@ -1,3 +1,6 @@
+#ifndef NUMJAC_H
+#define NUMJAC_H
+
 #include <Eigen/Core>
 #include <stdexcept>
 
@@ -28,3 +31,5 @@ auto numJacobian(T fn, const P& x) -> Eigen::Matrix<double,decltype(fn(x))::Rows
 	}
 	return jac;
 }
+
+#endif
