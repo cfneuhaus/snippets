@@ -11,7 +11,7 @@ auto numJacobian(T fn, const P& x) -> Eigen::Matrix<double,decltype(fn(x))::Rows
 	Eigen::Matrix<double,Rows,P::RowsAtCompileTime> jac;
 
 	const double eps=0.0001;
-	auto xh=x;
+	Eigen::Matrix<double,P::RowsAtCompileTime,1> xh=x;
 	for (int i=0;i<x.rows();i++)
 	{
 		xh(i)=x(i)+eps;
@@ -34,3 +34,4 @@ auto numJacobian(T fn, const P& x) -> Eigen::Matrix<double,decltype(fn(x))::Rows
 }
 
 #endif
+
