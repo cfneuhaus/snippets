@@ -9,13 +9,12 @@
 #include <set>
 
 template<typename Model_>
-Model_ ransac(const std::vector<Eigen::Vector3d>& data, double threshold, int numIterations)
+Model_ ransac(const std::vector<Eigen::Vector3d>& data, double threshold, int numIterations, int randomSeed=std::random_device()())
 {
 	if (data.size()<Model_::ModelSize)
 		throw std::runtime_error("Not enough data");
 
-	std::random_device dev;
-	std::mt19937 engine(dev());
+	std::mt19937 engine(randomSeed);
 	std::uniform_int_distribution<> dis(0,data.size()-1);
 
 	int bestInliers=-1;
