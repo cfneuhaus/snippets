@@ -2,6 +2,7 @@
 #define PLANEMODEL_H
 
 #include <Eigen/Core>
+#include <Eigen/Dense>
 #include <vector>
 #include <array>
 
